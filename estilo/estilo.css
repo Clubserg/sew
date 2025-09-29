@@ -1,2 +1,13 @@
  /* datos personales Sergio Fernandez-Miranda Longo UO302282*/
  /* Estilos generales del proyecto MotoGP-Desktop*/
+<style>
+ #a { width: 300px; height: 150px; }
+ @media (max-width: 600px) { #a { width: 100px; height: 100px; } }
+</style>
+<figure>
+ <picture>
+  <source srcset="a-square.png" media="(max-width: 600px)">
+  <img src="a-rectangle.png" alt="Barney Frank wears a suit and glasses." id="a">
+ </picture>
+ <figcaption>Barney Frank, 2011</figcaption>
+</figure>
