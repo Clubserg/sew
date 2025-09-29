@@ -53,6 +53,25 @@
 		<li><strong>Dorsal:</strong> 63</li>
 	</ul>
 
+	<script>
+		function fallback(video) {
+		  // replace <video> with its contents
+		  while (video.hasChildNodes()) {
+			if (video.firstChild instanceof HTMLSourceElement)
+			  video.removeChild(video.firstChild);
+			else
+			  video.parentNode.insertBefore(video.firstChild, video);
+		  }
+		  video.parentNode.removeChild(video);
+		}
+	   </script>
+	   <video controls autoplay>
+		<source src='multimedia/video_piloto_mp4.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+		<source src='multimedia/video_piloto_webm.webm' type='video/webm; codecs="opus, vorbis"'
+				onerror="fallback(parentNode)">
+		
+	   </video>
+
 	<!-- Lista de equipos con los que ha competido -->
 	<h3>Equipos con los que ha competido</h3>
 	<ul>
