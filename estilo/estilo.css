@@ -1,2 +1,25 @@
  /* datos personales Sergio Fernandez-Miranda Longo UO302282*/
  /* Estilos generales del proyecto MotoGP-Desktop*/
+
+ /* Selector: body → especificidad = 001 */
+body {
+  background-color: #f2c5e0; /* Hot Pink */
+  color: #720928; /* Burgundy para texto */
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+/* Selector: header → especificidad = 001 */
+header {
+  background-color: #870a30;
+  color: #f2c5e0;
+}
+
+/* Selector: h1 → especificidad = 001 */
+h1 {
+  color: #ffffff; /* Magenta */
+}
+
+/* Selector: nav → especificidad = 001 */
+nav {
+  color: #720928; 
+}
