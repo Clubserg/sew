@@ -3,8 +3,8 @@
 
  /* Selector: body → especificidad = 001 */
 body {
-  background-color: #f2c5e0; /* Hot Pink */
-  color: #720928; /* Burgundy para texto */
+  background-color: #f2c5e0; 
+  color: #720928; 
   font-family: Verdana, Geneva, sans-serif;
 }
 
@@ -16,10 +16,14 @@ header {
 
 /* Selector: h1 → especificidad = 001 */
 h1 {
-  color: #ffffff; /* Magenta */
+  color: #ffffff;
 }
 
 /* Selector: nav → especificidad = 001 */
 nav {
   color: #720928; 
+}
+
+.highlight {
+  background-color: lightblue;
 }
