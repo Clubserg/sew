@@ -1,0 +1,88 @@
+ /* datos personales Sergio Fernandez-Miranda Longo UO302282*/
+ /* Layout del proyecto MotoGP-Desktop*/
+
+header {
+  display: flex;
+}
+header h1 {
+  margin-left: 1em;
+  margin-right: auto;
+}
+header nav {
+  display: flex;
+  align-items: center;
+  margin-right: 3em;
+}
+header nav a{
+  flex: 1;
+  margin-left: 2em;
+}
+
+/* ====== Media query MÓVIL: 320px–799px ====== */
+@media (min-width: 320px) and (max-width: 799px) {
+
+
+  header {
+    /* REDEFINICIÓN: flex-direction (antes: row predeterminado) */
+    flex-direction: column;
+
+    /* REDEFINICIÓN: justify-content (antes: space-between o similar) */
+    justify-content: center;
+
+    /* REDEFINICIÓN: align-items (antes: center o similar) */
+    align-items: stretch;
+
+    /* REDEFINICIÓN: gap */
+    gap: 0.75rem;
+  }
+
+  header > h1,
+  header > nav {
+    /* REDEFINICIÓN: flex (antes: p.ej., 1 1 16rem / 24rem) */
+    flex: 1 1 100%;
+  }
+
+  header > nav {
+    /* REDEFINICIÓN: flex-direction (antes: row) */
+    flex-direction: column;
+
+    /* REDEFINICIÓN: justify-content (antes: flex-end o similar) */
+    justify-content: center;
+
+    /* REDEFINICIÓN: align-items (antes: center) — estira enlaces al ancho */
+    align-items: stretch;
+
+    /* REDEFINICIÓN: gap (si procede) */
+    gap: 0.5rem;
+  }
+
+   header > nav > a {
+    /* REDEFINICIÓN: align-self (si fuera necesario) para asegurar el estirado */
+    align-self: stretch;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header + nav {
+    /* REDEFINICIÓN: display (antes: block) */
+    display: none;
+  }
+
+  video {
+    /* REDEFINICIÓN: width (ajusta al contenedor en móvil) */
+    width: 100%;
+    /* REDEFINICIÓN: height (mantiene proporción del video) */
+    height: auto;
+    /* Sugerencia: que no exceda el contenedor si heredara dimensiones */
+    max-inline-size: 100%;
+  }
+
+  audio {
+    /* REDEFINICIÓN: width (ajusta al contenedor en móvil) */
+    width: 100%;
+    /* Opcional: para evitar desbordes en contenedores estrechos */
+    max-inline-size: 100%;
+  }
+}
