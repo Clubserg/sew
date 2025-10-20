@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE circuito SYSTEM "circuito.dtd">
-<circuito>
+
+
+<circuito xmlns="http://www.uniovi.es"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.uniovi.es circuito.xsd">
     <nombre>Circuit of the Americas</nombre>
     <longitud unidad="metros">5513</longitud>
     <anchura unidad="metros">15</anchura>
     <fecha>2025-04-13</fecha>
-    <hora>21:00</hora>
+    <hora>21:00:00</hora>
     <vueltas>20</vueltas>
     <localidad>Austin</localidad>
     <pais>Estados Unidos</pais>
@@ -63,7 +66,7 @@
     <resultado_carrera>
 
         <nombre_piloto>Francesco Bagnaia</nombre_piloto>
-        <tiempo>39:00.191</tiempo>
+        <tiempo>PT39M0.191S</tiempo>
 
     </resultado_carrera>
 
