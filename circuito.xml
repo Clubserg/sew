@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE circuito SYSTEM "circuito.dtd">
+<circuito>
+    <nombre>Circuit of the Americas</nombre>
+    <longitud unidad="metros">5513</longitud>
+    <anchura unidad="metros">15</anchura>
+    <fecha>2025-04-13</fecha>
+    <hora>21:00</hora>
+    <vueltas>20</vueltas>
+    <localidad>Austin</localidad>
+    <pais>Estados Unidos</pais>
+    <patrocinador>Red Bull</patrocinador>
+
+    <referencias>
+        <referencia>https://www.motogp.com/es/event/United+States</referencia>
+        <referencia>https://es.wikipedia.org/wiki/Circuito_de_las_Am%C3%A9ricas</referencia>
+        <referencia>https://www.formula1.com/en/racing/2025/United_States.html</referencia>
+    </referencias>
+
+    <galeria>
+        <fotografia>multimedia/circuitoimg1.jpg</fotografia>
+        <fotografia>multimedia/circuitoimg2.jpg</fotografia>
+        <fotografia>multimedia/circuitoimg3.jpg</fotografia>
+        <video>multimedia/circuitovid1.mp4</video>
+    </galeria>
+
+    <punto_origen>
+        <longitud_punto>-97.6359</longitud_punto>
+        <latitud_punto>30.1328</latitud_punto>
+        <altitud_punto unidad="m">190</altitud_punto>
+    </punto_origen>
+
+    <tramos>
+        <tramo>
+            <distancia unidad="m">320</distancia>
+            <punto_origen>
+                <longitud_punto>-97.6361</longitud_punto>
+                <latitud_punto>30.1330</latitud_punto>
+                <altitud_punto unidad="m">190</altitud_punto>
+            </punto_origen>
+            <sector>1</sector>
+        </tramo>
+        <tramo>
+            <distancia unidad="m">450</distancia>
+            <punto_origen>
+                <longitud_punto>-97.6350</longitud_punto>
+                <latitud_punto>30.1320</latitud_punto>
+                <altitud_punto unidad="m">188</altitud_punto>
+            </punto_origen>
+            <sector>1</sector>
+        </tramo>
+        <tramo>
+            <distancia unidad="m">600</distancia>
+            <punto_origen>
+                <longitud_punto>-97.6340</longitud_punto>
+                <latitud_punto>30.1310</latitud_punto>
+                <altitud_punto unidad="m">187</altitud_punto>
+            </punto_origen>
+            <sector>2</sector>
+        </tramo>
+    </tramos>
+
+    <resultado_carrera>
+
+        <nombre_piloto>Francesco Bagnaia</nombre_piloto>
+        <tiempo>39:00.191</tiempo>
+
+    </resultado_carrera>
+
+    <clasificacion_mundial>
+        <piloto>
+            <nombre_piloto>Marc Márquez</nombre_piloto>
+            <puntos>545</puntos>
+            <posicion>1</posicion>
+        </piloto>
+        <piloto>
+            <nombre_piloto>Álex Márquez</nombre_piloto>
+            <puntos>379</puntos>
+            <posicion>2</posicion>
+        </piloto>
+        <piloto>
+            <nombre_piloto>Marco Bezzecchi</nombre_piloto>
+            <puntos>282</puntos>
+            <posicion>3</posicion>
+        </piloto>
+    </clasificacion_mundial>
+
+
+
+</circuito>

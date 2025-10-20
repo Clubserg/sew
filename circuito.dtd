@@ -1,0 +1,38 @@
+<!ELEMENT circuito (nombre, longitud, anchura, fecha, hora, vueltas, localidad, pais, patrocinador, referencias, galeria, punto_origen, tramos, resultado_carrera, clasificacion_mundial)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT longitud (#PCDATA)>
+<!ATTLIST longitud unidad CDATA #REQUIRED>
+<!ELEMENT anchura (#PCDATA)>
+<!ATTLIST anchura unidad CDATA #REQUIRED>
+<!ELEMENT fecha (#PCDATA)>
+<!ELEMENT hora (#PCDATA)>
+<!ELEMENT vueltas (#PCDATA)>
+<!ELEMENT localidad (#PCDATA)>
+<!ELEMENT pais (#PCDATA)>
+<!ELEMENT patrocinador (#PCDATA)>
+<!ELEMENT referencias (referencia+)>
+<!ELEMENT referencia (#PCDATA)>
+<!ELEMENT galeria (fotografia+, video+)>
+<!ELEMENT fotografia (#PCDATA)>
+<!ELEMENT video (#PCDATA)>
+
+<!ELEMENT punto_origen (longitud_punto, latitud_punto, altitud_punto)>
+<!ELEMENT longitud_punto (#PCDATA)>
+<!ELEMENT latitud_punto (#PCDATA)>
+<!ELEMENT altitud_punto (#PCDATA)>
+<!ATTLIST altitud_punto unidad CDATA #REQUIRED>
+
+<!ELEMENT tramos (tramo+)>
+<!ELEMENT tramo (distancia, punto_origen, sector)>
+<!ELEMENT distancia (#PCDATA)>
+<!ATTLIST distancia unidad CDATA #REQUIRED>
+<!ELEMENT sector (#PCDATA)>
+
+<!ELEMENT resultado_carrera (nombre_piloto, tiempo)>
+
+<!ELEMENT tiempo (#PCDATA)>
+<!ELEMENT clasificacion_mundial (piloto+)>
+<!ELEMENT piloto (nombre_piloto, puntos, posicion)>
+<!ELEMENT nombre_piloto (#PCDATA)>
+<!ELEMENT puntos (#PCDATA)>
+<!ELEMENT posicion (#PCDATA)>
