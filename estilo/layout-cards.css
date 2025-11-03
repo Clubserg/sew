@@ -1,0 +1,32 @@
+/* layout-cards.css */
+/* Disposición en cuadrícula para el juego de memoria MotoGP */
+
+
+/* Selector: main 
+   Especificidad: (0,0,1)
+*/
+main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas, el resto automático */
+    gap: 1rem;
+    padding: 1rem;
+}
+
+
+/* Selector: main > h2
+   Especificidad: (0,0,2)
+*/
+main > h2 {
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+
+
+/* Especificidad: igual que main (0,0,1) */
+@media screen and (max-width: 768px) {
+    main {
+        /*Warning, redefinicion de grid-template-columns por adaptarlo a moviles */
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    }
+}

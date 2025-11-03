@@ -2,11 +2,11 @@
 
 <html lang="es">
 <head>
+
 	<meta name ="author" content ="Sergio Fernandez-Miranda Longo" />
 	<meta name ="description" content ="Meteorologia de la pagina de MotoGP" />
 	<meta name ="keywords" content ="MotoGP, meteorologia, meteorology" />
 	<meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
-
 
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
@@ -14,6 +14,8 @@
 	<link rel="icon" type="image/x-icon" href="multimedia/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
 	<link rel="stylesheet" type="text/css" href="estilo/layout.css"/>
+
+	<script src="js/ciudad.js"></script>
 </head>
 
 <body>
@@ -39,6 +41,32 @@
   	</nav>
 	
 	<h2>Meteorologia de MotoGP Desktop</h2>
-    <p>en desarrollo </p>
+
+	
+	<script>
+		// Instancia de la clase Ciudad correspondiente a Circuit of the Americas → Austin (Estados Unidos)
+		// Constructor: nombre, país, gentilicio
+		const ciudad = new Ciudad("Austin", "Estados Unidos", "austinense");
+
+		// Completar atributos: población y coordenadas del centro (latitud, longitud)
+		// Puedes ajustar población si tu práctica usa otro dato concreto.
+		ciudad.establecerSecundarios(974000, 30.2672, -97.7431);
+
+
+		document.write(`<article class="bloque-ciudad">`);
+		document.write(`<h3>${ciudad.getNombre()}</h3>`);
+		document.write(`<p><strong>País:</strong> ${ciudad.getPais()}</p>`);
+		// Lista no ordenada con gentilicio y población
+		document.write(ciudad.infoSecundariaHTML());
+		// Coordenadas usando el método que internamente utiliza document.write()
+		ciudad.escribirCoordenadas();
+		document.write(`</article>`);
+	</script>
+
+	<noscript>
+		<p><em>Necesitas activar JavaScript para ver la información de la ciudad.</em></p>
+	</noscript>
+
+
 </body>
 </html>
