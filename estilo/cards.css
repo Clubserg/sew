@@ -16,7 +16,7 @@ main article {
 
 /* Regla con la transformación que permite girar la carta cuando se le pone el data-state al valor flip */
 /* especificidad: 012 */
-main article[data-state=flip] {
+main article[data-state=flip], main article[data-state='revelada'] {
     transform: rotateY(180deg);
 }
 

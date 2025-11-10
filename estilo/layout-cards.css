@@ -21,6 +21,14 @@ main > h2 {
     text-align: center;
 }
 
+/* Selector: main > p
+   Especificidad: (0,0,2)
+*/
+main > p{
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
 
 
 /* Especificidad: igual que main (0,0,1) */

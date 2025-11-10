@@ -3,17 +3,19 @@
 <html lang="es">
 <head>
 	<meta name ="author" content ="Sergio Fernandez-Miranda Longo" />
-	<meta name ="description" content ="Juegos de la pagina de MotoGP" />
-	<meta name ="keywords" content ="MotoGP, juegos, games" />
+	<meta name ="description" content ="Indice de la pagina de MotoGP" />
+	<meta name ="keywords" content ="MotoGP, indice, index" />
 	<meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
 
 
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
-    <title>MotoGP-Juegos</title>
-	<link rel="icon" type="image/x-icon" href="multimedia/favicon.ico">
+    <title>MotoGP-Indice</title>
+	<link rel="icon" type="image/x-icon" href="multimedia/favicon.ico"/>
 	<link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
 	<link rel="stylesheet" type="text/css" href="estilo/layout.css"/>
+
+    <script src="js/cronometro.js"></script>
 </head>
 
 <body>
@@ -21,32 +23,37 @@
 	 <header>
     <h1><a href="index.html">MotoGP Desktop</a></h1>
 		<nav>
-			<a href="index.html" title="Inicio de la pagina de MotoGP">Inicio</a>
+			<a class="highlight" href="index.html" title="Inicio de la pagina de MotoGP">Inicio</a>
 			<a href="piloto.html" title="Información del piloto">Piloto</a>
 			<a href="circuito.html" title="Información de los circuitos">Circuito</a>
 			<a href="meteorologia.html" title="Información del tiempo">Meteorologia</a>
 			<a href="clasificaciones.html" title="Información de la clasificacion">Clasificaciones</a>
-			<a class="highlight" href="juegos.html" title="Información de los juegos">Juegos</a>
+			<a href="juegos.html" title="Información de los juegos">Juegos</a>
 			<a href="ayuda.html" title="Ayuda">Ayuda</a>
 		</nav>
 	</header>
 
-	<nav>
+    <nav>
 		<p>Estás en: 
 		<a href="index.html">Inicio</a> &gt;&gt;
-		<span><strong>Juegos</strong></span>
+        <a href="juegos.html">Juegos</a> &gt;&gt;
+		<span><strong>Cronometro</strong></span>
 		</p>
   	</nav>
 
-	<h2>Juegos de MotoGP Desktop</h2>
-	<section>
-		<h3>Listado de juegos</h3>
-		<ul>
-			<li><a href="memoria.html" title="Juego de memoria con cartas">Juego de memoria con cartas</a></li>
-			<li><a href="cronometro.html" title="Cronometro">Cronometro</a></li>
-			<!-- Aquí podrás añadir más juegos en el futuro -->
-		</ul>
-	</section>
+    <main>
+        <p>00:00.0</p>
 
+        <button onclick="cronometro.arrancar()">Arrancar</button>
+		<button onclick="cronometro.parar()">Parar</button>
+		<button onclick="cronometro.reiniciar()">Reiniciar</button>
+    </main>
+
+    <script>
+		
+		const cronometro = new Cronometro();
+
+    </script>
 </body>
+
 </html>

@@ -29,20 +29,15 @@ class Ciudad {
     };
   }
 
-  /** Devuelve, en forma de texto, el nombre de la ciudad. */
   getNombre() {
     return this.nombre;
   }
 
-  /** Devuelve, en forma de texto, el nombre del país. */
   getPais() {
     return this.pais;
   }
 
-  /**
-   * Devuelve la información secundaria (gentilicio y población)
-   * con la estructura de una lista no ordenada HTML5 dentro de una cadena.
-   */
+
   infoSecundariaHTML() {
     const pobTxt =
       this.poblacion !== null ? this.poblacion.toLocaleString("es-ES") : "—";
@@ -55,11 +50,6 @@ class Ciudad {
         </ul>`.trim();
   }
 
-  /**
-   * Escribe en el documento la información de las coordenadas
-   * del punto elegido utilizando document.write()
-   * (Se recomienda invocar este método durante el parseo del documento).
-   */
   escribirCoordenadas() {
     const { lat, lon } = this.coordenadas;
     let contenido;
@@ -73,7 +63,6 @@ class Ciudad {
       contenido = `<p><strong>Coordenadas del centro:</strong> ${latTxt}°, ${lonTxt}°</p>`;
     }
 
-    // Requisito: uso de document.write()
     document.body.insertAdjacentHTML("beforeend", contenido);
   }
 }
