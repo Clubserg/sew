@@ -52,17 +52,15 @@ class Ciudad {
 
   escribirCoordenadas() {
     const { lat, lon } = this.coordenadas;
-    let contenido;
 
     if (lat === null || lon === null) {
-      contenido = `<p><em>Coordenadas no disponibles.</em></p>`;
-    } else {
-      // Muestra las coordenadas con 4 decimales
-      const latTxt = lat.toFixed(4);
-      const lonTxt = lon.toFixed(4);
-      contenido = `<p><strong>Coordenadas del centro:</strong> ${latTxt}°, ${lonTxt}°</p>`;
+      return `<p><em>Coordenadas no disponibles.</em></p>`;
     }
 
-    document.body.insertAdjacentHTML("beforeend", contenido);
+    const latTxt = lat.toFixed(4);
+    const lonTxt = lon.toFixed(4);
+
+    return `<p><strong>Coordenadas del centro:</strong> ${latTxt}°, ${lonTxt}°</p>`;
   }
+
 }

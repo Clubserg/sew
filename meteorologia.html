@@ -44,23 +44,28 @@
 
 	
 	<script>
-		// Instancia de la clase Ciudad correspondiente a Circuit of the Americas → Austin (Estados Unidos)
-		// Constructor: nombre, país, gentilicio
 		const ciudad = new Ciudad("Austin", "Estados Unidos", "austinense");
-
-		// Completar atributos: población y coordenadas del centro (latitud, longitud)
-		// Puedes ajustar población si tu práctica usa otro dato concreto.
 		ciudad.establecerSecundarios(974000, 30.2672, -97.7431);
-
-
-		document.write(`<article >`);
-		document.write(`<h3>${ciudad.getNombre()}</h3>`);
-		document.write(`<p><strong>País:</strong> ${ciudad.getPais()}</p>`);
-		// Lista no ordenada con gentilicio y población
-		document.write(ciudad.infoSecundariaHTML());
-		// Coordenadas usando el método que internamente utiliza document.write()
-		ciudad.escribirCoordenadas();
-		document.write(`</article>`);
+	
+		const article = document.createElement("article");
+	
+		const h3 = document.createElement("h3");
+		h3.textContent = ciudad.getNombre();
+		article.appendChild(h3);
+	
+		const pPais = document.createElement("p");
+		pPais.innerHTML = `<strong>País:</strong> ${ciudad.getPais()}`;
+		article.appendChild(pPais);
+	
+		const listaInfo = document.createElement("div");
+		listaInfo.innerHTML = ciudad.infoSecundariaHTML();
+		article.appendChild(listaInfo);
+	
+		const coords = document.createElement("div");
+		coords.innerHTML = ciudad.escribirCoordenadas();
+		article.appendChild(coords);
+	
+		document.body.appendChild(article);
 	</script>
 
 	<noscript>
