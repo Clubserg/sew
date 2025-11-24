@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<uniovi:circuito
+    xmlns:uniovi="http://www.uniovi.es"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.uniovi.es circuito.xsd">
+
+    <uniovi:nombre>Circuit of the Americas</uniovi:nombre>
+
+    <uniovi:longitud unidad="metros">5513</uniovi:longitud>
+    <uniovi:anchura unidad="metros">15</uniovi:anchura>
+
+    <uniovi:fecha>2025-04-13</uniovi:fecha>
+    <uniovi:hora>21:00:00</uniovi:hora>
+    <uniovi:vueltas>20</uniovi:vueltas>
+
+    <uniovi:localidad>Austin</uniovi:localidad>
+    <uniovi:pais>Estados Unidos</uniovi:pais>
+    <uniovi:patrocinador>Red Bull</uniovi:patrocinador>
+
+    <uniovi:referencias>
+        <uniovi:referencia>https://www.motogp.com/es/event/United+States</uniovi:referencia>
+        <uniovi:referencia>https://es.wikipedia.org/wiki/Circuito_de_las_Am%C3%A9ricas</uniovi:referencia>
+        <uniovi:referencia>https://www.formula1.com/en/racing/2025/United_States.html</uniovi:referencia>
+    </uniovi:referencias>
+
+    <uniovi:galeria>
+        <uniovi:fotografia>multimedia/circuitoimg1.jpg</uniovi:fotografia>
+        <uniovi:fotografia>multimedia/circuitoimg2.jpg</uniovi:fotografia>
+        <uniovi:fotografia>multimedia/circuitoimg3.jpg</uniovi:fotografia>
+        <uniovi:video>multimedia/circuitovid1.mp4</uniovi:video>
+    </uniovi:galeria>
+
+    <uniovi:punto_origen>
+        <uniovi:longitud_punto>-97.6359</uniovi:longitud_punto>
+        <uniovi:latitud_punto>30.1328</uniovi:latitud_punto>
+        <uniovi:altitud_punto unidad="m">190</uniovi:altitud_punto>
+    </uniovi:punto_origen>
+
+    <uniovi:tramos>
+        <uniovi:tramo>
+            <uniovi:distancia unidad="m">320</uniovi:distancia>
+            <uniovi:punto_origen>
+                <uniovi:longitud_punto>-97.6361</uniovi:longitud_punto>
+                <uniovi:latitud_punto>30.1330</uniovi:latitud_punto>
+                <uniovi:altitud_punto unidad="m">190</uniovi:altitud_punto>
+            </uniovi:punto_origen>
+            <uniovi:sector>1</uniovi:sector>
+        </uniovi:tramo>
+
+        <uniovi:tramo>
+            <uniovi:distancia unidad="m">450</uniovi:distancia>
+            <uniovi:punto_origen>
+                <uniovi:longitud_punto>-97.6350</uniovi:longitud_punto>
+                <uniovi:latitud_punto>30.1320</uniovi:latitud_punto>
+                <uniovi:altitud_punto unidad="m">188</uniovi:altitud_punto>
+            </uniovi:punto_origen>
+            <uniovi:sector>1</uniovi:sector>
+        </uniovi:tramo>
+
+        <uniovi:tramo>
+            <uniovi:distancia unidad="m">600</uniovi:distancia>
+            <uniovi:punto_origen>
+                <uniovi:longitud_punto>-97.6340</uniovi:longitud_punto>
+                <uniovi:latitud_punto>30.1310</uniovi:latitud_punto>
+                <uniovi:altitud_punto unidad="m">187</uniovi:altitud_punto>
+            </uniovi:punto_origen>
+            <uniovi:sector>2</uniovi:sector>
+        </uniovi:tramo>
+    </uniovi:tramos>
+
+    <uniovi:resultado_carrera>
+        <uniovi:nombre_piloto>Francesco Bagnaia</uniovi:nombre_piloto>
+        <uniovi:tiempo>PT39M0.191S</uniovi:tiempo>
+    </uniovi:resultado_carrera>
+
+    <uniovi:clasificacion_mundial>
+        <uniovi:piloto>
+            <uniovi:nombre_piloto>Marc Márquez</uniovi:nombre_piloto>
+            <uniovi:puntos>545</uniovi:puntos>
+            <uniovi:posicion>1</uniovi:posicion>
+        </uniovi:piloto>
+        <uniovi:piloto>
+            <uniovi:nombre_piloto>Álex Márquez</uniovi:nombre_piloto>
+            <uniovi:puntos>379</uniovi:puntos>
+            <uniovi:posicion>2</uniovi:posicion>
+        </uniovi:piloto>
+        <uniovi:piloto>
+            <uniovi:nombre_piloto>Marco Bezzecchi</uniovi:nombre_piloto>
+            <uniovi:puntos>282</uniovi:puntos>
+            <uniovi:posicion>3</uniovi:posicion>
+        </uniovi:piloto>
+    </uniovi:clasificacion_mundial>
+
+</uniovi:circuito>

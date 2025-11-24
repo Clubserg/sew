@@ -1,53 +1,46 @@
+
 class Carrusel {
     constructor(busqueda) {
         this.busqueda = busqueda;
         this.actual = 0;
-        this.maximo = 4; // aunque pedimos 5 fotos, mostramos 4 en carrusel
+        this.maximo = 4;
         this.fotos = [];
-        this.intervalo = null; // para guardar el temporizador
+        this.intervalo = null;
+        this.imgElemento = null; // Referencia directa a la imagen
     }
 
     getFotografias() {
-        const apiKey = "TU_API_KEY"; // Sustituye por tu clave de Flickr
-        const url = "https://api.flickr.com/services/rest/";
+        const flickrAPI = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
 
-        return $.ajax({
-            url: url,
-            method: "GET",
-            dataType: "json",
-            data: {
-                method: "flickr.photos.search",
-                api_key: apiKey,
-                text: this.busqueda,
-                per_page: 5,
-                format: "json",
-                nojsoncallback: 1,
-                extras: "url_z"
-            }
+        return $.getJSON(flickrAPI, {
+            tags: this.busqueda,
+            tagmode: "any",
+            format: "json"
+        }).then(data => {
+            // Convertir imágenes de _m a _z (640px)
+            data.items.forEach(item => {
+                item.media.m = item.media.m.replace("_m.jpg", "_z.jpg");
+            });
+            return data;
         });
     }
 
     procesarJSONFotografias(json) {
-        if (!json || !json.photos || !json.photos.photo) {
+        if (!json || !json.items) {
             console.error("JSON inválido");
             return;
         }
 
-        const fotosArray = json.photos.photo;
         this.fotos = [];
 
-        for (let i = 0; i < fotosArray.length && i < 5; i++) {
-            const foto = fotosArray[i];
+        json.items.slice(0, 5).forEach(item => {
             this.fotos.push({
-                titulo: foto.title || "Sin título",
-                url: foto.url_z || ""
+                titulo: item.title || "Sin título",
+                url: item.media.m
             });
-        }
+        });
     }
 
-    /**
-     * Devuelve el HTML inicial con la primera imagen y activa el temporizador.
-     */
     mostrarFotografias() {
         if (this.fotos.length === 0) {
             return "<p>No hay fotos para mostrar</p>";
@@ -55,34 +48,34 @@ class Carrusel {
 
         const primeraFoto = this.fotos[0];
 
-        // HTML inicial con contenedor para la imagen
-        let html = `
-            <article id="carrusel">
-                <h2>Imágenes del circuito de ${this.busqueda}</h2>
-                ${primeraFoto.url}
-            </article>
-        `;
+        // Crear elementos sin id ni class
+        const article = document.createElement("article");
+        const titulo = document.createElement("h2");
+        titulo.textContent = `Imágenes del circuito de ${this.busqueda}`;
 
-        // Activar temporizador para cambiar imagen cada 3 segundos
+        const img = document.createElement("img");
+        img.src = primeraFoto.url;
+        img.alt = primeraFoto.titulo;
+
+        // Guardamos referencia para cambiar la foto después
+        this.imgElemento = img;
+
+        article.appendChild(titulo);
+        article.appendChild(img);
+
+        // Iniciar el carrusel
         this.intervalo = setInterval(this.cambiarFotografia.bind(this), 3000);
 
-        return html;
+        return article; // Devuelve el nodo, no HTML
     }
 
-    /**
-     * Cambia la imagen mostrada en el carrusel cada 3 segundos.
-     */
     cambiarFotografia() {
-        if (this.fotos.length === 0) return;
+        if (this.fotos.length === 0 || !this.imgElemento) return;
 
-        // Avanzar al siguiente índice
         this.actual = (this.actual + 1) % this.fotos.length;
-
         const fotoActual = this.fotos[this.actual];
 
-        // Actualizar la imagen en el DOM usando jQuery
-        $("#foto-carrusel")
-            .attr("src", fotoActual.url)
-            .attr("alt", fotoActual.titulo);
+        this.imgElemento.src = fotoActual.url;
+        this.imgElemento.alt = fotoActual.titulo;
     }
 }

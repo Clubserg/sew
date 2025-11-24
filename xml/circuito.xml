@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <circuito xmlns="http://www.uniovi.es"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://www.uniovi.es circuito.xsd">
+
     <nombre>Circuit of the Americas</nombre>
     <longitud unidad="metros">5513</longitud>
     <anchura unidad="metros">15</anchura>
@@ -28,66 +28,123 @@
     </galeria>
 
     <punto_origen>
-        <longitud_punto>-97.6359</longitud_punto>
-        <latitud_punto>30.1328</latitud_punto>
+        <longitud_punto>-97.64226</longitud_punto>
+        <latitud_punto>30.13353</latitud_punto>
         <altitud_punto unidad="m">190</altitud_punto>
     </punto_origen>
 
     <tramos>
         <tramo>
+            <distancia unidad="m">0</distancia>
+            <punto_origen><longitud_punto>-97.64226</longitud_punto><latitud_punto>30.13353</latitud_punto><altitud_punto unidad="m">190</altitud_punto></punto_origen>
+            <sector>1</sector>
+        </tramo>
+        <tramo>
             <distancia unidad="m">320</distancia>
-            <punto_origen>
-                <longitud_punto>-97.6361</longitud_punto>
-                <latitud_punto>30.1330</latitud_punto>
-                <altitud_punto unidad="m">190</altitud_punto>
-            </punto_origen>
+            <punto_origen><longitud_punto>-97.64100</longitud_punto><latitud_punto>30.13480</latitud_punto><altitud_punto unidad="m">190</altitud_punto></punto_origen>
             <sector>1</sector>
         </tramo>
         <tramo>
             <distancia unidad="m">450</distancia>
-            <punto_origen>
-                <longitud_punto>-97.6350</longitud_punto>
-                <latitud_punto>30.1320</latitud_punto>
-                <altitud_punto unidad="m">188</altitud_punto>
-            </punto_origen>
+            <punto_origen><longitud_punto>-97.63950</longitud_punto><latitud_punto>30.13550</latitud_punto><altitud_punto unidad="m">189</altitud_punto></punto_origen>
             <sector>1</sector>
         </tramo>
         <tramo>
             <distancia unidad="m">600</distancia>
-            <punto_origen>
-                <longitud_punto>-97.6340</longitud_punto>
-                <latitud_punto>30.1310</latitud_punto>
-                <altitud_punto unidad="m">187</altitud_punto>
-            </punto_origen>
+            <punto_origen><longitud_punto>-97.63780</longitud_punto><latitud_punto>30.13520</latitud_punto><altitud_punto unidad="m">188</altitud_punto></punto_origen>
+            <sector>1</sector>
+        </tramo>
+        <tramo>
+            <distancia unidad="m">750</distancia>
+            <punto_origen><longitud_punto>-97.63620</longitud_punto><latitud_punto>30.13450</latitud_punto><altitud_punto unidad="m">188</altitud_punto></punto_origen>
+            <sector>1</sector>
+        </tramo>
+        <tramo>
+            <distancia unidad="m">900</distancia>
+            <punto_origen><longitud_punto>-97.63500</longitud_punto><latitud_punto>30.13380</latitud_punto><altitud_punto unidad="m">187</altitud_punto></punto_origen>
+            <sector>1</sector>
+        </tramo>
+        <tramo>
+            <distancia unidad="m">1050</distancia>
+            <punto_origen><longitud_punto>-97.63420</longitud_punto><latitud_punto>30.13300</latitud_punto><altitud_punto unidad="m">187</altitud_punto></punto_origen>
             <sector>2</sector>
+        </tramo>
+        <tramo>
+            <distancia unidad="m">1200</distancia>
+            <punto_origen><longitud_punto>-97.63350</longitud_punto><latitud_punto>30.13220</latitud_punto><altitud_punto unidad="m">186</altitud_punto></punto_origen>
+            <sector>2</sector>
+        </tramo>
+        <tramo>
+            <distancia unidad="m">1350</distancia>
+            <punto_origen><longitud_punto>-97.63380</longitud_punto><latitud_punto>30.13120</latitud_punto><altitud_punto unidad="m">186</altitud_punto></punto_origen>
+            <sector>2</sector>
+        </tramo>
+        <tramo>
+            <distancia unidad="m">1500</distancia>
+            <punto_origen><longitud_punto>-97.63480</longitud_punto><latitud_punto>30.13050</latitud_punto><altitud_punto unidad="m">185</altitud_punto></punto_origen>
+            <sector>2</sector>
+        </tramo>
+        <tramo>
+            <distancia unidad="m">1650</distancia>
+            <punto_origen><longitud_punto>-97.63650</longitud_punto><latitud_punto>30.13020</latitud_punto><altitud_punto unidad="m">185</altitud_punto></punto_origen>
+            <sector>2</sector>
+        </tramo>
+        <tramo>
+            <distancia unidad="m">1800</distancia>
+            <punto_origen><longitud_punto>-97.63850</longitud_punto><latitud_punto>30.13080</latitud_punto><altitud_punto unidad="m">184</altitud_punto></punto_origen>
+            <sector>2</sector>
+        </tramo>
+        <tramo>
+            <distancia unidad="m">1950</distancia>
+            <punto_origen><longitud_punto>-97.64150</longitud_punto><latitud_punto>30.13090</latitud_punto><altitud_punto unidad="m">184</altitud_punto></punto_origen>
+            <sector>3</sector>
+        </tramo>
+        <tramo>
+            <distancia unidad="m">2100</distancia>
+            <punto_origen><longitud_punto>-97.64280</longitud_punto><latitud_punto>30.13180</latitud_punto><altitud_punto unidad="m">185</altitud_punto></punto_origen>
+            <sector>3</sector>
+        </tramo>
+        <tramo>
+            <distancia unidad="m">2250</distancia>
+            <punto_origen><longitud_punto>-97.64350</longitud_punto><latitud_punto>30.13250</latitud_punto><altitud_punto unidad="m">186</altitud_punto></punto_origen>
+            <sector>3</sector>
+        </tramo>
+        <tramo>
+            <distancia unidad="m">2400</distancia>
+            <punto_origen><longitud_punto>-97.64380</longitud_punto><latitud_punto>30.13320</latitud_punto><altitud_punto unidad="m">186</altitud_punto></punto_origen>
+            <sector>3</sector>
+        </tramo>
+        <tramo>
+            <distancia unidad="m">2550</distancia>
+            <punto_origen><longitud_punto>-97.64320</longitud_punto><latitud_punto>30.13380</latitud_punto><altitud_punto unidad="m">187</altitud_punto></punto_origen>
+            <sector>3</sector>
+        </tramo>
+        <tramo>
+            <distancia unidad="m">2700</distancia>
+            <punto_origen><longitud_punto>-97.64220</longitud_punto><latitud_punto>30.13410</latitud_punto><altitud_punto unidad="m">187</altitud_punto></punto_origen>
+            <sector>3</sector>
+        </tramo>
+        <tramo>
+            <distancia unidad="m">2850</distancia>
+            <punto_origen><longitud_punto>-97.64150</longitud_punto><latitud_punto>30.13400</latitud_punto><altitud_punto unidad="m">188</altitud_punto></punto_origen>
+            <sector>3</sector>
+        </tramo>
+        <tramo>
+            <distancia unidad="m">3000</distancia>
+            <punto_origen><longitud_punto>-97.64180</longitud_punto><latitud_punto>30.13370</latitud_punto><altitud_punto unidad="m">188</altitud_punto></punto_origen>
+            <sector>3</sector>
         </tramo>
     </tramos>
 
     <resultado_carrera>
-
         <nombre_piloto>Francesco Bagnaia</nombre_piloto>
         <tiempo>PT39M0.191S</tiempo>
-
     </resultado_carrera>
 
     <clasificacion_mundial>
-        <piloto>
-            <nombre_piloto>Marc Márquez</nombre_piloto>
-            <puntos>545</puntos>
-            <posicion>1</posicion>
-        </piloto>
-        <piloto>
-            <nombre_piloto>Álex Márquez</nombre_piloto>
-            <puntos>379</puntos>
-            <posicion>2</posicion>
-        </piloto>
-        <piloto>
-            <nombre_piloto>Marco Bezzecchi</nombre_piloto>
-            <puntos>282</puntos>
-            <posicion>3</posicion>
-        </piloto>
+        <piloto><nombre_piloto>Marc Márquez</nombre_piloto><puntos>545</puntos><posicion>1</posicion></piloto>
+        <piloto><nombre_piloto>Álex Márquez</nombre_piloto><puntos>379</puntos><posicion>2</posicion></piloto>
+        <piloto><nombre_piloto>Marco Bezzecchi</nombre_piloto><puntos>282</puntos><posicion>3</posicion></piloto>
     </clasificacion_mundial>
-
-
 
 </circuito>
