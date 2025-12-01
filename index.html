@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html lang="es">
 <head>
-	<meta name ="author" content ="Sergio Fernandez-Miranda Longo" />
-	<meta name ="description" content ="Indice de la pagina de MotoGP" />
-	<meta name ="keywords" content ="MotoGP, indice, index" />
-	<meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
+	<meta name="author" content="Sergio Fernandez-Miranda Longo" />
+	<meta name="description" content="Indice de la pagina de MotoGP" />
+	<meta name="keywords" content="MotoGP, indice, index" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<meta charset="UTF-8" />
 	<title>MotoGP-Indice</title>
@@ -27,23 +27,49 @@
 		</nav>
 	</header>
 
-	<h2>Indice de MotoGP Desktop</h2>
+	<main>
+		<h2>Indice de MotoGP Desktop</h2>
 
-	<article></article>
+		<!-- Carrusel de imágenes -->
+		<article>
+			<h3>Imágenes del circuito de Circuit of the Americas</h3>
+		</article>
+
+		<!-- Sección de noticias -->
+		<section>
+			<h3>Cargando noticias...</h3>
+		</section>
+	</main>
 
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 	<script src="js/carrusel.js"></script>
-
-	
+	<script src="js/noticias.js"></script>
 
 <script>
-    const carrusel = new Carrusel("Circuit of the Americas");
+	// Carrusel de imágenes
+	const carrusel = new Carrusel("Circuit of the Americas");
 
-    carrusel.getFotografias().then(data => {
-        carrusel.procesarJSONFotografias(data);
-        const article = carrusel.mostrarFotografias();
-        document.querySelector("article").replaceWith(article);
-    });
+	carrusel.getFotografias().then(data => {
+		carrusel.procesarJSONFotografias(data);
+		const article = carrusel.mostrarFotografias();
+		document.querySelector("main > article").replaceWith(article);
+	}).catch(error => {
+		console.error("Error al cargar el carrusel:", error);
+	});
+
+	// Noticias sobre MotoGP
+	const noticias = new Noticias();
+
+	noticias.buscar()
+		.then(data => {
+			noticias.procesarInformacion(data);
+			const $seccionNoticias = noticias.mostrarNoticias();
+			$("main > section").replaceWith($seccionNoticias);
+		})
+		.catch(error => {
+			console.error("Error al cargar noticias:", error);
+			$("main > section").html("<h3>Error al cargar noticias</h3><p>No se pudieron cargar las noticias en este momento.</p>");
+		});
 </script>
 
 

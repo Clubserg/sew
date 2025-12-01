@@ -3,24 +3,26 @@
 <html lang="es">
 <head>
 
-	<meta name ="author" content ="Sergio Fernandez-Miranda Longo" />
-	<meta name ="description" content ="Meteorologia de la pagina de MotoGP" />
-	<meta name ="keywords" content ="MotoGP, meteorologia, meteorology" />
-	<meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
+	<meta name="author" content="Sergio Fernandez-Miranda Longo" />
+	<meta name="description" content="Meteorologia de la pagina de MotoGP" />
+	<meta name="keywords" content="MotoGP, meteorologia, meteorology" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
     <title>MotoGP-Meteorologia</title>
-	<link rel="icon" type="image/x-icon" href="multimedia/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="multimedia/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
-	<link rel="stylesheet" type="text/css" href="estilo/layout.css"/>
+	<link rel="stylesheet" type="text/css" href="estilo/layout.css" />
 
+	<!-- jQuery Core 3.7.1 (Tarea 2) -->
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 	<script src="js/ciudad.js"></script>
 </head>
 
 <body>
     <!-- Datos con el contenidos que aparece en el navegador -->
-	 <header>
+	<header>
     	<h1><a href="index.html">MotoGP Desktop</a></h1>
 		<nav>
 			<a href="index.html" title="Inicio de la pagina de MotoGP">Inicio</a>
@@ -40,32 +42,50 @@
 		</p>
   	</nav>
 	
-	<h2>Meteorologia de MotoGP Desktop</h2>
+	<main>
+		<h2>Meteorologia de MotoGP Desktop</h2>
 
+		<!-- Contenedor para información de la ciudad -->
+		<section>
+			<h3>Información del Circuito</h3>
+		</section>
+
+		<!-- Contenedor para datos meteorológicos de la carrera -->
+		<section>
+			<h3>Meteorología del Día de la Carrera</h3>
+		</section>
+
+		<!-- Contenedor para datos meteorológicos de entrenamientos -->
+		<section>
+			<h3>Meteorología de los Entrenamientos</h3>
+		</section>
+	</main>
 	
 	<script>
 		const ciudad = new Ciudad("Austin", "Estados Unidos", "austinense");
 		ciudad.establecerSecundarios(974000, 30.2672, -97.7431);
 	
-		const article = document.createElement("article");
+		// Crear la información de la ciudad usando jQuery
+		const $article = $("<article></article>");
 	
-		const h3 = document.createElement("h3");
-		h3.textContent = ciudad.getNombre();
-		article.appendChild(h3);
+		const $h4 = $("<h4></h4>").text(ciudad.getNombre());
+		$article.append($h4);
 	
-		const pPais = document.createElement("p");
-		pPais.innerHTML = `<strong>País:</strong> ${ciudad.getPais()}`;
-		article.appendChild(pPais);
+		const $pPais = $("<p></p>").html("<strong>País:</strong> " + ciudad.getPais());
+		$article.append($pPais);
 	
-		const listaInfo = document.createElement("div");
-		listaInfo.innerHTML = ciudad.infoSecundariaHTML();
-		article.appendChild(listaInfo);
+		$article.append(ciudad.infoSecundariaHTML());
+		$article.append(ciudad.escribirCoordenadas());
 	
-		const coords = document.createElement("div");
-		coords.innerHTML = ciudad.escribirCoordenadas();
-		article.appendChild(coords);
-	
-		document.body.appendChild(article);
+		$("main > section:first-of-type").append($article);
+
+		// Obtener datos meteorológicos de la carrera
+		// Fecha de ejemplo: GP de las Américas 2024
+		ciudad.getMeteorologiaCarrera();
+
+		// Obtener datos meteorológicos de entrenamientos
+		// 3 días previos a la carrera
+		ciudad.getMeteorologiaEntrenos("2025-10-16", "2025-10-18");
 	</script>
 
 	<noscript>
