@@ -29,7 +29,7 @@ class Clasificacion {
             $tiempoFormateado = $this->formatearTiempo($tiempo);
             
             echo "<section>\n";
-            echo "<h3>Ganador de la Carrera</h3>\n";
+            echo "<h3>Ganador de la Carrera en el Circuito de las Américas</h3>\n";
             echo "<article>\n";
             echo "<h4>" . htmlspecialchars($nombrePiloto) . "</h4>\n";
             echo "<p><strong>Tiempo:</strong> " . htmlspecialchars($tiempoFormateado) . "</p>\n";
