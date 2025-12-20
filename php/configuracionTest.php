@@ -71,8 +71,8 @@ try {
 
     <nav>
         <p>Estás en: 
-            <a href="index.html">Inicio</a> &gt;&gt;
-            <a href="juegos.html">Juegos</a> &gt;&gt;
+            <a href="../index.html">Inicio</a> &gt;&gt;
+            <a href="../juegos.html">Juegos</a> &gt;&gt;
             <span>Configuración Test</span>
         </p>
     </nav>
