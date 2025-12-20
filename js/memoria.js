@@ -18,7 +18,6 @@ class Memoria {
         // Agregar event listener a cada carta
         cartas.forEach(carta => {
             carta.addEventListener("click", (event) => {
-                // event.currentTarget se refiere al elemento al que se le agregó el listener
                 this.voltearCarta(event.currentTarget);
             });
         });
