@@ -1,7 +1,4 @@
-/**
- * Clase Ciudad
- * Representa: nombre, país, gentilicio, población y coordenadas (latitud, longitud)
- */
+
 class Ciudad {
 
   constructor(nombre, pais, gentilicio) {
@@ -10,12 +7,12 @@ class Ciudad {
     this.gentilicio = String(gentilicio);
 
     // Atributos que se completan después
-    this.poblacion = null; // número entero o null
+    this.poblacion = null;
     this.coordenadas = { lat: null, lon: null }; // {lat: number, lon: number}
   }
 
   establecerSecundarios(poblacion, lat, lon) {
-    // Validaciones sencillas
+
     const pob = Number(poblacion);
     const la = Number(lat);
     const lo = Number(lon);
@@ -44,8 +41,8 @@ class Ciudad {
 
     return `
         <ul>
-        <li><strong>Gentilicio:</strong> ${gentTxt}</li>
-        <li><strong>Población:</strong> ${pobTxt}</li>
+        <li>Gentilicio: <strong>${gentTxt}</strong></li>
+        <li>Población: <strong>${pobTxt}</strong></li>
         </ul>`.trim();
   }
 
@@ -59,13 +56,12 @@ class Ciudad {
     const latTxt = lat.toFixed(4);
     const lonTxt = lon.toFixed(4);
 
-    return `<p><strong>Coordenadas del centro:</strong> ${latTxt}°, ${lonTxt}°</p>`;
+    return `<p>Coordenadas del centro: <strong>${latTxt}°, ${lonTxt}°</strong></p>`;
   }
 
-  // TAREA 3: Obtener meteorología del día de la carrera
   getMeteorologiaCarrera() {
     const fecha = "2025-10-19";
-    // la fecha es el 19 de octubre a las 21.00 españolas
+    // 19 de octubre a las 21 (recordatorio)
     const { lat, lon } = this.coordenadas;
     
     if (lat === null || lon === null) {
@@ -96,7 +92,6 @@ class Ciudad {
     });
   }
 
-  // TAREA 4: Procesar JSON de la carrera
   procesarJSONCarrera(data) {
     
     const HORA_LOCAL = "21:00";
@@ -104,66 +99,33 @@ class Ciudad {
 
     const $article = $("<article></article>");
     
-    // Datos diarios (sunrise y sunset)
+    // Datos diarios
     if (data.daily) {
       $article.append("<h4>Fecha: " + data.daily.time[0] + "</h4>");
-      $article.append("<p><strong>Amanecer:</strong> " + data.daily.sunrise[0] + "</p>");
-      $article.append("<p><strong>Atardecer:</strong> " + data.daily.sunset[0] + "</p>");
+      $article.append("<p>Amanecer: <strong>" + data.daily.sunrise[0] + "</strong></p>");
+      $article.append("<p>Atardecer: <strong>" + data.daily.sunset[0] + "</strong></p>");
     }
 
     // Datos horarios
-
     if (data.hourly && Array.isArray(data.hourly.time) && data.hourly.time.length > 0) {
-      const times = data.hourly.time;
-
-      const idx = times.findIndex(t => {
-        const partes = String(t).split("T");
-        return partes.length === 2 && partes[1] === HORA_LOCAL;
-      });
-
-      const $tabla = $("<table></table>");
+      const hora = data.hourly.time[21].split("T")[1];
       
-      const $caption = $("<caption></caption>").text("Datos meteorológicos horarios del día de la carrera");
-      $tabla.append($caption);
+      $article.append("<h5>Datos meteorológicos a las " + hora + "</h5>");
       
-      const $thead = $("<thead></thead>");
-      const $headerRow = $("<tr></tr>");
-      $headerRow.append("<th scope='col'>Hora</th>");
-      $headerRow.append("<th scope='col'>Temperatura (°C)</th>");
-      $headerRow.append("<th scope='col'>Sensación Térmica (°C)</th>");
-      $headerRow.append("<th scope='col'>Lluvia (mm)</th>");
-      $headerRow.append("<th scope='col'>Humedad (%)</th>");
-      $headerRow.append("<th scope='col'>Vel. Viento (km/h)</th>");
-      $headerRow.append("<th scope='col'>Dir. Viento (°)</th>");
-      $thead.append($headerRow);
-      $tabla.append($thead);
-
-      const $tbody = $("<tbody></tbody>");
+      const $lista = $("<ul></ul>");
+      $lista.append("<li>Temperatura: <strong>" + data.hourly.temperature_2m[21] + " °C</strong></li>");
+      $lista.append("<li>Sensación térmica: <strong>" + data.hourly.apparent_temperature[21] + " °C</strong></li>");
+      $lista.append("<li>Lluvia: <strong>" + data.hourly.rain[21] + " mm</strong></li>");
+      $lista.append("<li>Humedad: <strong>" + data.hourly.relative_humidity_2m[21] + " %</strong></li>");
+      $lista.append("<li>Velocidad del viento: <strong>" + data.hourly.wind_speed_10m[21] + " km/h</strong></li>");
+      $lista.append("<li>Dirección del viento: <strong>" + data.hourly.wind_direction_10m[21] + " °</strong></li>");
       
-
-        const hora = data.hourly.time[21].split("T")[1];
-        const $fila = $("<tr></tr>");
-        
-        $fila.append("<td>" + hora + "</td>");
-        $fila.append("<td>" + data.hourly.temperature_2m[21] + "</td>");
-        $fila.append("<td>" + data.hourly.apparent_temperature[21] + "</td>");
-        $fila.append("<td>" + data.hourly.rain[21] + "</td>");
-        $fila.append("<td>" + data.hourly.relative_humidity_2m[21] + "</td>");
-        $fila.append("<td>" + data.hourly.wind_speed_10m[21] + "</td>");
-        $fila.append("<td>" + data.hourly.wind_direction_10m[21] + "</td>");
-        
-        $tbody.append($fila);
-
-      
-      $tabla.append($tbody);
-      $article.append($tabla);
+      $article.append($lista);
     }
 
-    // TAREA 5: Añadir al documento
     $("main > section:nth-of-type(2)").append($article);
   }
 
-  // TAREA 6: Obtener meteorología de entrenamientos
   getMeteorologiaEntrenos(fechaInicio, fechaFin) {
     const { lat, lon } = this.coordenadas;
     
@@ -194,7 +156,6 @@ class Ciudad {
     });
   }
 
-  // TAREA 7: Procesar JSON de entrenamientos
   procesarJSONEntrenos(data) {
     const $article = $("<article></article>");
 
@@ -220,24 +181,6 @@ class Ciudad {
         datosPorDia[fecha].humedad.push(data.hourly.relative_humidity_2m[i]);
       }
 
-      // Calcular medias
-      const $tabla = $("<table></table>");
-      
-      const $caption = $("<caption></caption>").text("Medias meteorológicas de los días de entrenamientos");
-      $tabla.append($caption);
-      
-      const $thead = $("<thead></thead>");
-      const $headerRow = $("<tr></tr>");
-      $headerRow.append("<th scope='col'>Día</th>");
-      $headerRow.append("<th scope='col'>Temperatura Media (°C)</th>");
-      $headerRow.append("<th scope='col'>Lluvia Media (mm)</th>");
-      $headerRow.append("<th scope='col'>Vel. Viento Media (km/h)</th>");
-      $headerRow.append("<th scope='col'>Humedad Media (%)</th>");
-      $thead.append($headerRow);
-      $tabla.append($thead);
-
-      const $tbody = $("<tbody></tbody>");
-
       for (const fecha in datosPorDia) {
         const dia = datosPorDia[fecha];
         
@@ -246,18 +189,16 @@ class Ciudad {
         const mediaViento = (dia.viento.reduce((a, b) => a + b, 0) / dia.viento.length).toFixed(2);
         const mediaHumedad = (dia.humedad.reduce((a, b) => a + b, 0) / dia.humedad.length).toFixed(2);
 
-        const $fila = $("<tr></tr>");
-        $fila.append("<td>" + fecha + "</td>");
-        $fila.append("<td>" + mediaTemp + "</td>");
-        $fila.append("<td>" + mediaLluvia + "</td>");
-        $fila.append("<td>" + mediaViento + "</td>");
-        $fila.append("<td>" + mediaHumedad + "</td>");
+        $article.append("<h4>Día: " + fecha + "</h4>");
         
-        $tbody.append($fila);
+        const $lista = $("<ul></ul>");
+        $lista.append("<li>Temperatura media: <strong>" + mediaTemp + " °C</strong></li>");
+        $lista.append("<li>Lluvia media: <strong>" + mediaLluvia + " mm</strong></li>");
+        $lista.append("<li>Velocidad del viento media: <strong>" + mediaViento + " km/h</strong></li>");
+        $lista.append("<li>Humedad media: <strong>" + mediaHumedad + " %</strong></li>");
+        
+        $article.append($lista);
       }
-
-      $tabla.append($tbody);
-      $article.append($tabla);
     }
 
     // TAREA 8: Añadir al documento

@@ -346,7 +346,7 @@ def generate_html(info, output_path):
             html.add_content_tag('h3', 'Fotografías')
             for i, foto in enumerate(info['fotografias'], 1):
                 # Ajustar ruta relativa añadiendo ../
-                foto_path = f"../{foto}" if not foto.startswith('../') else foto
+                foto_path = f"{foto}" if not foto.startswith('../') else foto
                 html.add_self_closing_tag('img', {'src': foto_path, 'alt': f'Fotografía {i} del circuito {info["nombre"]}'})
             html.close_tag('article')
         
@@ -356,7 +356,7 @@ def generate_html(info, output_path):
             html.add_content_tag('h3', 'Videos')
             for video in info['videos']:
                 # Ajustar ruta relativa añadiendo ../
-                video_path = f"../{video}" if not video.startswith('../') else video
+                video_path = f"{video}" if not video.startswith('../') else video
                 html.open_tag('video', {'controls': 'controls'})
                 html.add_self_closing_tag('source', {'src': video_path, 'type': 'video/mp4'})
                 html.close_tag('video')
@@ -383,8 +383,7 @@ if __name__ == "__main__":
         
         # Generar archivo HTML
         generate_html(circuit_info, HTML_OUT)
-        print(f"✓ HTML generado: {HTML_OUT}")
-        print(f"\nEl archivo HTML cumple con:")
+        print(f"HTML generado: {HTML_OUT}")
 
         
     except Exception as e:

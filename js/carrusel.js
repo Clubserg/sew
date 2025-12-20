@@ -17,7 +17,6 @@ class Carrusel {
             tagmode: "any",
             format: "json"
         }).then(data => {
-            // Convertir imágenes de _m a _z (640px)
             data.items.forEach(item => {
                 item.media.m = item.media.m.replace("_m.jpg", "_z.jpg");
             });
@@ -43,12 +42,11 @@ class Carrusel {
 
     mostrarFotografias() {
         if (this.fotos.length === 0) {
-            return "<p>No hay fotos para mostrar</p>";
+            return "No hay fotos para mostrar";
         }
 
         const primeraFoto = this.fotos[0];
 
-        // Crear elementos sin id ni class
         const article = document.createElement("article");
         const titulo = document.createElement("h2");
         titulo.textContent = `Imágenes del circuito de ${this.busqueda}`;
@@ -57,7 +55,6 @@ class Carrusel {
         img.src = primeraFoto.url;
         img.alt = primeraFoto.titulo;
 
-        // Guardamos referencia para cambiar la foto después
         this.imgElemento = img;
 
         article.appendChild(titulo);
@@ -66,7 +63,7 @@ class Carrusel {
         // Iniciar el carrusel
         this.intervalo = setInterval(this.cambiarFotografia.bind(this), 3000);
 
-        return article; // Devuelve el nodo, no HTML
+        return article; 
     }
 
     cambiarFotografia() {

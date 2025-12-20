@@ -3,14 +3,14 @@
 
 /* Selector: body → especificidad = 0-0-1 */
 body {
-  background-color: #f2c5e0; 
+  background-color: #EBEBEB; 
   color: #53081e; 
   font-family: Verdana, Geneva, sans-serif;
 }
 
 /* Selector: header → especificidad = 0-0-1 */
 header {
-  background-color: #870a30;
+  background-color: #6D0927;
   color: #f2c5e0;
 }
 

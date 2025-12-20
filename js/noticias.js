@@ -1,7 +1,4 @@
-/**
- * Clase Noticias
- * Consume el servicio web de noticias para obtener información sobre MotoGP
- */
+
 class Noticias {
 
     constructor() {
@@ -13,17 +10,10 @@ class Noticias {
       this.noticias = [];
     }
   
-    /**
-     * TAREA 3: Obtener las noticias sobre MotoGP
-     * Realiza una llamada al servicio web de noticias utilizando fetch()
-     * @returns {Promise} Promesa que devuelve los datos en formato JSON
-     */
+
     buscar() {
       return fetch(this.url)
         .then(response => {
-          if (!response.ok) {
-            throw new Error("Error en la petición: " + response.status);
-          }
           return response.json();
         })
         .catch(error => {
@@ -32,11 +22,7 @@ class Noticias {
         });
     }
   
-    /**
-     * TAREA 4: Procesar la información del objeto JSON
-     * Extrae las noticias del objeto JSON obtenido
-     * @param {Object} data - Objeto JSON con las noticias
-     */
+
     procesarInformacion(data) {
       if (data && data.data && Array.isArray(data.data)) {
         this.noticias = data.data.map(article => ({
@@ -53,12 +39,7 @@ class Noticias {
         this.noticias =    this.noticias = [];
       }
     }
-  
-    /**
-     * TAREA 5: Crear elementos HTML con las noticias
-     * Genera una sección con todas las noticias procesadas
-     * @returns {jQuery} Elemento section con las noticias
-     */
+
     mostrarNoticias() {
       const $section = $("<section></section>");
       $section.append("<h2>Noticias sobre MotoGP</h2>");

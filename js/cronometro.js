@@ -33,7 +33,7 @@ class Cronometro {
         }
     
         this.tiempo = diferencia;
-        this.mostrar(); // <- Asegúrate de mostrar el tiempo actualizado
+        this.mostrar(); 
     }
     
 

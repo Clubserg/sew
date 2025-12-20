@@ -16,13 +16,24 @@ header h1 {
 header nav {
   display: flex;
   align-items: center;
-  margin-right: 3em;
+  margin-right: 1em;
+  gap: 0em;
 }
 
 /* Especificidad: 0-0-3  (header + nav + a) */
 header nav a{
-  flex: 1;
-  margin-left: 2em;
+  flex: 0 0 auto;
+  padding: 0.4em 0.6em;
+}
+
+/* Especificidad: 0-0-5 - Selector de tipo para el contenedor del mapa dinámico */
+body > main > section[data-tipo="contenido-mapa"] > div {
+    width: 100%;
+    height: 31.25em; /* 500px en unidades relativas */
+    border: 0.125em solid #333;
+    border-radius: 0.5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 /* ====== Media query MÓVIL: 320px–799px ====== */
@@ -33,14 +44,8 @@ header nav a{
   header {
     flex-direction: column;
     justify-content: center;
-    align-items: stretch;
-    gap: 0.75rem;
-  }
-
-  /* Especificidad: 0-0-2 (header > h1 y header > nav) */
-  header > h1,
-  header > nav {
-    flex: 1 1 100%;
+    align-items: center;
+    align-self: center;
   }
 
   /* Especificidad: 0-0-2 (header > nav) */
@@ -84,7 +89,12 @@ header nav a{
       object-fit: contain;/* Garantiza que no se recorte en pantallas estrechas */
       max-inline-size: 100%;
   }
+
+  /* Especificidad: 0-0-5 - Se redefinen propiedades width y height para adaptabilidad en móvil */
+  body > main > section[data-tipo="contenido-mapa"] > div {
+      width: 100%;
+      height: 25em; /* Altura ajustada para dispositivos móviles */
+      margin-left: 0;
+      margin-right: 0;
+  }
 }
-
-
-

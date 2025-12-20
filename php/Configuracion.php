@@ -20,8 +20,8 @@ class Configuracion {
      */
     public function __construct() {
         $this->servidor = "localhost";
-        $this->usuario = "SMFL_user";
-        $this->password = "SMFL_password";
+        $this->usuario = "DBUSER2025";
+        $this->password = "DBPSWD2025";
         $this->baseDatos = "UO302282_DB";
     }
     
@@ -95,17 +95,11 @@ class Configuracion {
         }
     }
     
-    /**
-     * Reinicia la base de datos eliminando todos los datos de las tablas
-     * pero manteniendo la estructura
-     * @return string Mensaje con el resultado de la operación
-     */
     public function reiniciarBaseDatos() {
         if (!$this->conectar()) {
             return "Error: No se pudo conectar a la base de datos. Asegúrese de que existe.";
         }
         
-        // Desactivar comprobación de claves foráneas temporalmente
         $this->conexion->query("SET FOREIGN_KEY_CHECKS = 0");
         
         $tablas = [
@@ -129,10 +123,8 @@ class Configuracion {
             }
         }
         
-        // Reinsertar datos de catálogo
         $this->insertarDatosCatalogo();
         
-        // Reactivar comprobación de claves foráneas
         $this->conexion->query("SET FOREIGN_KEY_CHECKS = 1");
         
         $this->cerrarConexion();
@@ -144,9 +136,7 @@ class Configuracion {
         return "Base de datos reiniciada correctamente. Se eliminaron los datos de $exitosos tablas.";
     }
     
-    /**
-     * Inserta los datos iniciales en las tablas de catálogo
-     */
+
     private function insertarDatosCatalogo() {
         // Insertar géneros
         $generos = [

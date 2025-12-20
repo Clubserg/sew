@@ -41,7 +41,7 @@ class Memoria {
 
         const cartas = Array.from(contenedor.querySelectorAll("article"));
 
-        // Algoritmo Fisher-Yates para barajar
+        // Algoritmo de barajar
         for (let i = cartas.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [cartas[i], cartas[j]] = [cartas[j], cartas[i]];
@@ -51,7 +51,7 @@ class Memoria {
     }
 
     reiniciarAtributos() {
-        this.tablero_bloqueado = false; // ← antes estaba en true
+        this.tablero_bloqueado = false; 
         this.primera_carta = null;
         this.segunda_carta = null;
     }
@@ -93,7 +93,7 @@ class Memoria {
                 this.segunda_carta.removeAttribute("data-state");
             }
 
-            // 3. Reiniciar atributos del turno
+            // Reiniciar atributos del turno
             this.reiniciarAtributos();
         }, 1500);
 
