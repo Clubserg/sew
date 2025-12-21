@@ -60,7 +60,7 @@ class Ciudad {
   }
 
   getMeteorologiaCarrera() {
-    const fecha = "2025-10-19";
+    const fecha = "2025-03-30";
     // 19 de octubre a las 21 (recordatorio)
     const { lat, lon } = this.coordenadas;
     
