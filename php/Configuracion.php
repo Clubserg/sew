@@ -210,9 +210,6 @@ class Configuracion {
         }
         
         $tablas = [
-            "Genero",
-            "PericiaInformatica",
-            "TipoDispositivo",
             "Usuario",
             "ResultadoTestUsabilidad",
             "ObservacionFacilitador"
