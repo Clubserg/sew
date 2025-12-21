@@ -1,5 +1,6 @@
 import xml.etree.ElementTree as ET
 import os
+import re
 
 # Archivos de entrada/salida
 XML_CANDIDATES = ["circuitoEsquema.xml", "circuito.xml"]
@@ -14,6 +15,42 @@ def find_existing_xml():
         if os.path.exists(fname):
             return fname
     raise FileNotFoundError("No se encontró 'circuitoEsquema.xml' ni 'circuito.xml'")
+
+def parse_iso_duration(duration_str):
+    """
+    Convierte una duración ISO 8601 (ej: PT39M0.191S) a formato legible (ej: 39:00.191)
+    """
+    if not duration_str or not duration_str.startswith('PT'):
+        return duration_str
+    
+    # Eliminar el prefijo PT
+    duration = duration_str[2:]
+    
+    # Extraer horas, minutos y segundos
+    hours = 0
+    minutes = 0
+    seconds = 0.0
+    
+    # Buscar horas
+    h_match = re.search(r'(\d+)H', duration)
+    if h_match:
+        hours = int(h_match.group(1))
+    
+    # Buscar minutos
+    m_match = re.search(r'(\d+)M', duration)
+    if m_match:
+        minutes = int(m_match.group(1))
+    
+    # Buscar segundos (puede tener decimales)
+    s_match = re.search(r'([\d.]+)S', duration)
+    if s_match:
+        seconds = float(s_match.group(1))
+    
+    # Formatear el resultado
+    if hours > 0:
+        return f"{hours}:{minutes:02d}:{seconds:06.3f}"
+    else:
+        return f"{minutes}:{seconds:06.3f}"
 
 class Html:
     """Clase para generar archivos HTML"""
@@ -145,7 +182,8 @@ def extract_circuit_info(xml_path):
         nombre_piloto = resultado.find("ns:nombre_piloto", NS)
         tiempo = resultado.find("ns:tiempo", NS)
         info['ganador'] = nombre_piloto.text if nombre_piloto is not None else ""
-        info['tiempo_ganador'] = tiempo.text if tiempo is not None else ""
+        tiempo_raw = tiempo.text if tiempo is not None else ""
+        info['tiempo_ganador'] = parse_iso_duration(tiempo_raw)
     
     # Clasificación mundial usando XPath
     clasificacion = root.find("ns:clasificacion_mundial", NS)
